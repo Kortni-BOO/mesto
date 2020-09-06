@@ -2,7 +2,7 @@
     position: absolute;
     cursor: pointer;
     background-color:rgba(0, 0, 0, 0);
-    background-image: url(/Users/makbookair/Desktop/mesto/images/close.svg);
+    background-image: url(../../../images/close.svg);
     background-repeat: no-repeat;
     background-position: center;
     width: 40px;
