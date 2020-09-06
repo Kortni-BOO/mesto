@@ -1,0 +1,18 @@
+.popup__close {
+    position: absolute;
+    cursor: pointer;
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url(/Users/makbookair/Desktop/mesto/images/close.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    top: -36px;
+    right: -36px;
+    box-shadow: none;
+    border: none;
+  }
+  .popup__close:hover {
+    opacity: .6;
+    transition: .5s linear;
+  }
