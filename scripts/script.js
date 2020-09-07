@@ -1,4 +1,4 @@
-console.log('Ромашка симпотяжка');
+
 
 
 const popup = document.querySelector('.popup')

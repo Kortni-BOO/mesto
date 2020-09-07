@@ -5,6 +5,11 @@
   font-size: 42px;
   line-height: 56px;
   margin: 0;
+  width: 295px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
 }
 
 
@@ -14,5 +19,7 @@
     font-weight: 500;
     font-size: 27px;
     line-height: 56px;
+    width: 201px;
+    
   }
 }

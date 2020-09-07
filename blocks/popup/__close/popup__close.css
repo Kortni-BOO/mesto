@@ -11,8 +11,14 @@
     right: -36px;
     box-shadow: none;
     border: none;
+}
+.popup__close:hover {
+  opacity: .6;
+  transition: .5s linear;
+}
+
+@media screen and (max-width: 320px) {
+  .popup__close {
+    right: -3px;
   }
-  .popup__close:hover {
-    opacity: .6;
-    transition: .5s linear;
-  }
+}
