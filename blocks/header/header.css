@@ -5,12 +5,16 @@
     max-width: 882px;
     margin: auto;
     padding-top: 45px;
+    padding-bottom: 41px;
+    border-bottom: 1px solid #545454;
   }
 
 @media screen and (min-width:320px) and (max-width: 1024px){
   .header {
-     min-width: 320px;
-     padding-top: 45px;
+    
+     padding-top: 28px;
+     padding-bottom: 32px;
+     padding-left: 27px;
   }
 }
 

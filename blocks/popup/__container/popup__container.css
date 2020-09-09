@@ -4,7 +4,7 @@
     /* position: relative; */
     flex-direction: column;
     width: 430px;
-    /* height: 330px; */
+    height: 330px;
     top: 20%;
     left: 50%;
     transform: translateX(-50%);

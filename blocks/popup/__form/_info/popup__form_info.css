@@ -1,4 +1,5 @@
-.popup__form {
+.popup__form_info {
     display: flex;
     flex-direction: column;
+    border: none;   
 }

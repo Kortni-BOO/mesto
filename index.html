@@ -8,95 +8,83 @@
     <title>Mesto</title>
 </head>
 <body class="page">
-    
         <header class="header">
-            <img src="./images/Vector.svg" alt="" class="header__logo">
-            <div class="header__line"></div>
+            <div class="header__logo"></div>
         </header>
         <main class="content">
-        <section class="profile">
-            <div class="profile__avatar"></div>
-            
+        <section class="profile"> 
+            <div class="profile__avatar" style="background-image:url('images/image.jpg')"></div>
             <div class="profile__info">
                 <div class="profile__title">
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <button class="js-profile__open-popup profile__button-edit"></button></div>
+                <button type="button" class="profile__button-edit"></button></div>
                 <p class="profile__job">Исследователь океана</p>
-                
             </div>
-            
-                    
-                
-            
-            <button class="profile__button-add"></button>
-
-
+            <button type="button" class="profile__button-add"></button>
         </section>
-
-
-        <div class="elements">
-            <div class="element">
-                <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="" class="element__image">
+        <ul class="elements">
+            <li class="element">
+                <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Россия" class="element__image">
                 <div class="element__content">
-                <p class="element__text">Карачаевск</p>
-                <img src="./images/like.svg" alt="Лайк"></div>
-            </div>
-            <div class="element">
-                <img src="./images/kirill-pershin-1404681-unsplash.png" alt="" class="element__image">
+                <h2 class="element__text">Карачаевск</h2>
+                <button type="button" class="element__button-like"></button>
+            </li>
+            <li class="element">
+                <img src="./images/kirill-pershin-1404681-unsplash.png" alt="Россия" class="element__image">
                 <div class="element__content">
-                <p class="element__text">Гора Эльбрус</p>
-                <img src="./images/like.svg" alt="Лайк"></div>
-            </div>
-            <div class="element">
-                <img src="./images/kirill-pershin-1556355-unsplash.png" alt="" class="element__image">
+                <h2 class="element__text">Гора Эльбрус</h2>
+                <button type="button" class="element__button-like"></button>
+                </div>
+            </li>
+            <li class="element">
+                <img src="./images/kirill-pershin-1556355-unsplash.png" alt="Россия" class="element__image">
                 <div class="element__content">
-                <p class="element__text">Домбай</p>
-                <img src="./images/like.svg" alt="Лайк"></div>
-            </div>
-            <div class="element">
-                <img src="./images/kirill-pershin-1404681-unsplash.png" alt="" class="element__image">
+                <h2 class="element__text">Домбай</h2>
+                <button type="button" class="element__button-like"></button>
+                </div>
+            </li>
+            <li class="element">
+                <img src="./images/kirill-pershin-1404681-unsplash.png" alt="Россия" class="element__image">
                 <div class="element__content">
-                <p class="element__text">Гора Эльбрус</p>
-                <img src="./images/like.svg" alt="Лайк"></div>
-            </div>
-            <div class="element">
-                <img src="./images/kirill-pershin-1556355-unsplash.png" alt="" class="element__image">
+                <h2 class="element__text">Гора Эльбрус</h2>
+                <button type="button" class="element__button-like"></button>
+                </div>
+            </li>
+            <li class="element">
+                <img src="./images/kirill-pershin-1556355-unsplash.png" alt="Россия" class="element__image">
                 <div class="element__content">
-                <p class="element__text">Домбай</p>
-                <img src="./images/like.svg" alt="Лайк"></div>
-            </div>
-            <div class="element">
-                <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="" class="element__image">
+                <h2 class="element__text">Домбай</h2>
+                <button type="button" class="element__button-like"></button>
+                </div>
+            </li>
+            <li class="element">
+                <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Россия" class="element__image">
                 <div class="element__content">
-                <p class="element__text">Карачаевск</p>
-                <img src="./images/like.svg" alt="Лайк"></div>
-            </div>
-        </div>
+                <h2 class="element__text">Карачаевск</h2>
+                <button type="button" class="element__button-like"></button>
+                </div>
+            </li>
+        </ul>
     </main>
         <footer class="footer">
             <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
         </footer>
     
 
-    <section class="popup">
-        
+    <div class="popup"> 
         <div class="popup__container">
-            <button class="popup__close"></button>
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form">
-                <fieldset class="form__info">
-                    <input type="text" class="form__text form__name" value="Жак-Ив Кусто">
+            <button type="button" class="popup__close"></button>
+            <h4 class="popup__title">Редактировать профиль</h4>
+            <form class="popup__form" method="GET" name="PopupEditProfile">
+                <fieldset class="popup__form_info">
+                    <input type="text" name="ProfileName" class="popup__input popup__input_name">
+                    <input type="text" name="ProfileJob" class="popup__input popup__input_job">
                 </fieldset>
-               <fieldset class="form__info">
-                    <input type="text" class="form__text form__job" value="Исследователь океана">
-                   
-                </fieldset>
-
-                    <button type="submit" class="popup__save"><span class="save">Сохранить</span></button>
+                    <button type="submit" class="popup__save">Сохранить</button>
             </form>
            
         </div>
-    </section>
+    </div>
     <script src="./scripts/script.js"></script>
 </body>
 </html>

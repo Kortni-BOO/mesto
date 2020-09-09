@@ -1,0 +1,10 @@
+.element__button-like {
+    background-image: url(../../../images/like.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    width: 21px;
+  
+    border: none;
+    background-color: white;
+}

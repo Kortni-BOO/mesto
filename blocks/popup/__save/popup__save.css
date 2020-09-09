@@ -1,5 +1,4 @@
 .popup__save {
-    display: flex;
     width: 358px;
     height: 50.15px;
     background-color: black;
@@ -8,7 +7,13 @@
     cursor: pointer;
     box-shadow: none;
     border: none;
-  
+    font-family: Inter;
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+   
  
   
   }
@@ -23,5 +28,8 @@
       width: 290px;
       font-size: 14px;
       line-height: 17px;
+      font-style: normal;
+      font-weight: normal;
+      
     }
   }
