@@ -4,7 +4,6 @@
     /* position: relative; */
     flex-direction: column;
     width: 430px;
-    height: 330px;
     top: 20%;
     left: 50%;
     transform: translateX(-50%);
@@ -16,10 +15,11 @@
 
 }
 
-@media screen and (min-width: 320px) and (max-width: 768px) {
+@media screen and (min-width: 320px) and (max-width: 414px){
   .popup__container {
-    width: 320px;
+    width: 282px;
     top: 15%;
+    border-radius: 10px;
 
   }
 }
