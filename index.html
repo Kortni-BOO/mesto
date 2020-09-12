@@ -23,7 +23,7 @@
             <button type="button" class="profile__button-add" aria-label="add"></button>
         </section>
         <section class="elements"> 
-        <ul class="elements">
+        <ul class="elements__list">
             <li class="element">
                 <div class="element__image" style="background-image:url('./images/kirill-pershin-1088404-unsplash.jpg');"></div>
                 <div class="element__content">
@@ -69,7 +69,7 @@
         </ul>
     </section>
     </main>
-        <footer class="footer">
+    <footer class="footer">
             <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
         </footer>
     
@@ -80,8 +80,8 @@
             <h4 class="popup__title">Редактировать профиль</h4>
             <form class="popup__form" method="POST" name="PopupEditProfile">
                 <fieldset class="popup__fieldset">
-                    <input type="text" name="ProfileName" class="popup__input popup__input-name-author">
-                    <input type="text" name="ProfileJob" class="popup__input popup__input-job-author">
+                    <input type="text" name="ProfileName" class="popup__input_name-author">
+                    <input type="text" name="ProfileJob" class="popup__input_job-author">
                 </fieldset>
                     <button type="submit" class="popup__save" aria-label="save">Сохранить</button>
             </form>
