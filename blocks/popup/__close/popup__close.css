@@ -11,12 +11,15 @@
     right: -36px;
     box-shadow: none;
     border: none;
+    
+
 
 }
 .popup__close:hover {
   opacity: .6;
   transition: .5s linear;
 }
+
 @media screen and (min-width: 568px) and (max-width: 812px) {
     .popup__close {
         width: 20px;

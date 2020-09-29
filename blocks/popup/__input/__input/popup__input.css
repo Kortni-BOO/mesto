@@ -5,7 +5,7 @@
     border: none;
     padding-bottom: 13px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    color: #000000;
+    /* color: #000000; */
 }
 @media screen and (min-width: 568px) and (max-width: 812px) {
     .popup__input {
@@ -22,3 +22,18 @@
         line-height: 17px;
     }
 }
+.popup__input::-webkit-input-placeholder {
+    color:  #C4C4C4;
+  }
+  
+  .popup__input:-moz-placeholder {
+    color:  #C4C4C4;;
+  }
+  
+  .popup__input::-moz-placeholder {
+    color:  #C4C4C4;;
+  }
+  
+  .popup__input:-ms-input-placeholder {
+    color:  #C4C4C4;;
+  }

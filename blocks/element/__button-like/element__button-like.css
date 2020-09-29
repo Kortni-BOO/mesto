@@ -4,7 +4,11 @@
     background-position: center;
     cursor: pointer;
     width: 21px;
-  
     border: none;
     background-color: white;
+}
+
+.element__button-like:hover {
+    opacity: 0.6;
+    transition: .5s linear;
 }
