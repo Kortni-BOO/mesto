@@ -14,18 +14,18 @@ const popupProfileAdd = document.querySelector('.popup_profile-add');
 const popupCloseAdd = document.querySelector('.popup__close_profile-add');
 
 //открыть попап для карточек
-function popupToggle() {
+function toggleCardPopup() {
     popupProfileAdd.classList.toggle('popup__is-opened');
 }
 //открыть попап для редактирования
-function popupAddEdit() {
+function toggleEditPopup() {
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
     popupProfileEdit.classList.add('popup__is-opened');
 }
 //закрыть попапы
-function popupRemove() {
-    popup.classList.remove('popup__is-opened')
+function toggleRemovePopup() {
+    popupProfileEdit.classList.remove('popup__is-opened')
 }
 //добавить значение имя и работы
 function formSubmitHandler (evt) {
@@ -34,15 +34,15 @@ function formSubmitHandler (evt) {
 
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
-    popupRemove();
+    toggleRemovePopup();
     
 }
 
-popupOpenAdd.addEventListener('click', popupToggle);
-popupCloseAdd.addEventListener('click', popupToggle);
+popupOpenAdd.addEventListener('click', toggleCardPopup);
+popupCloseAdd.addEventListener('click', toggleCardPopup);
 
-popupOpenButton.addEventListener('click', popupAddEdit);
-popupCloseButton.addEventListener('click', popupRemove);
+popupOpenButton.addEventListener('click', toggleEditPopup);
+popupCloseButton.addEventListener('click', toggleRemovePopup);
 formElement.addEventListener('submit', formSubmitHandler);
 
 
@@ -78,8 +78,6 @@ const placeName = document.querySelector('.popup__input_assignment_place-name');
 const placeLink = document.querySelector('.popup__input_assignment_place-link');
 const elementTemplate = document.querySelector('#element__template').content;
 const elements = document.querySelector('.elements__list');
-//const element = document.querySelector('.element');
-//const deleteElement = document.querySelector('.element__button-trush');
 const popupCreate = document.querySelector('.popup__form_profile-add');
 
 
@@ -97,7 +95,8 @@ function renderCard(card){
     });
     
     elementCard.querySelector('.element__image').addEventListener('click', function(e){
-        bigPhoto.classList.toggle('popup__is-opened');
+        //bigPhoto.classList.toggle('popup__is-opened');
+        popupTogglePhoto(bigPhoto);
         popupPhoto.src = card.link;
         popupPhotoName.innerText = card.name; 
 
@@ -113,7 +112,7 @@ function renderCard(card){
 function render(){
     elements.innerHTML = '';
     initialCards.forEach(renderCard);
-    setListeners();
+    
 };  
 
 
@@ -126,26 +125,14 @@ function addCard(evt) {
     placeName.value = '';
     placeLink.value = '';
     render();
-    popupToggle();
+    toggleCardPopup();
 };
 render();
-/*
-function deleteCard(event) {
-     const index = event.target.parentNode.getAttribute('id');
-     initialCards.splice(index, 1);
-     render();
-}
-function setListeners() {
-    popupCreate.addEventListener('submit', addCard)
-    document.querySelectorAll('.element__button-trush').forEach((btn) => {
-    btn.addEventListener('click', deleteCard);
-})
-}
-*/
-function setListeners() {
-    popupCreate.addEventListener('submit', addCard);
+
+
+popupCreate.addEventListener('submit', addCard);
     
-}
+
 
 
 const bigPhoto = document.querySelector('.popup__profile-image');
@@ -156,10 +143,5 @@ const popupPhotoName = document.querySelector('.popup__name');
 function popupTogglePhoto() {
     bigPhoto.classList.toggle('popup__is-opened');
 }
-/*
-function openImageCard(){
-    bigPhoto.classList.add('popup__is-opened')
-    popupPhoto.src = 
-}*/
-//popupPhoto.addEventListener('click', popupTogglePhoto);
+
 popupImageClose.addEventListener('click', popupTogglePhoto);
