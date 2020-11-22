@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Mesto</title>
 </head>
 
@@ -47,12 +48,16 @@
         <div class="popup__container popup__container_profile-edit">
             <button type="button" class="popup__close popup__close_profile-edit" aria-label="close"></button>
             <h4 class="popup__title popup__title_profile-edit">Редактировать профиль</h4>
-            <form class="popup__form popup__form_profile-edit" method="POST" name="PopupEditProfile">
-                <fieldset class="popup__fieldset popup__fieldset_profile-edit">
-                    <input type="text" name="ProfileName" class="popup__input popup__input_assignment_author-name">
-                    <input type="text" name="ProfileJob" class="popup__input popup__input_assignment_author-job">
+            <form class="popup__form popup__form_profile-edit" method="POST" name="PopupEditProfile" >
+                <fieldset class="popup__fieldset popup__fieldset_profile-edit" novalidate>
+                    <label class="profile__name-label" for="profile-name"></label>
+                    <input id="profile-name" type="text" name="ProfileName" class="popup__input popup__input_assignment_author-name" required minlength="2" maxlength="40" >
+                    <span id="profile-name-error" class="popup__input-error popup__input-error_author-name"></span>
+                    <label class="profile__job-label" for="profile-job"></label>
+                    <input id="profile-job" type="text" name="ProfileJob" class="popup__input popup__input_assignment_author-job" required minlength="2" maxlength="200">
+                    <span id="profile-job-error" class="popup__input-error popup__input-error_author-job"></span>
                 </fieldset>
-                <button type="submit" class="popup__save" aria-label="save">Сохранить</button>
+                <button type="submit" class="popup__submit_active popup__save" aria-label="save">Сохранить</button>
             </form>
 
         </div>
@@ -62,14 +67,18 @@
         <div class="popup__container popup__container_profile-add">
             <button type="button" class="popup__close popup__close_profile-add" aria-label="close"></button>
             <h4 class="popup__title popup__title_profile-add">Новое место</h4>
-            <form class="popup__form popup__form_profile-add" method="POST" name="PopupEditProfile">
-                <fieldset class="popup__fieldset popup__fieldset_profile-add">
-                    <input type="text" name="PlaceName" class="popup__input popup__input_assignment_place-name"
-                        placeholder="Название">
-                    <input type="text" name="PlaceLink" class="popup__input popup__input_assignment_place-link"
-                        placeholder="Ссылка на картинку">
+            <form class="popup__form popup__form_profile-add" method="POST" name="PopupEditProfile" >
+                <fieldset class="popup__fieldset popup__fieldset_profile-add" novalidate>
+                    <label class="place__name-label" for="place-name"></label>
+                    <input id="place-name" type="text" name="PlaceName" class="popup__input popup__input_assignment_place-name"
+                        placeholder="Название" minlength="2" maxlength="30" required novalidate>
+                        <span id="place-name-error" class="popup__input-error popup__input-error_place-name"></span>
+                    <label class="place__link-label" for="place-link"></label>
+                    <input id="place-link" type="url" name="PlaceLink" class="popup__input popup__input_assignment_place-link"
+                        placeholder="Ссылка на картинку" required novalidate>
+                        <span id="place-link-error" class="popup__input-error popup__input-error_place-link"></span>
                 </fieldset>
-                <button type="submit" class="popup__create" aria-label="create">Создать</button>
+                <button type="submit" class="popup__submit_active popup__create" aria-label="create">Создать</button>
             </form>
 
         </div>
@@ -83,8 +92,8 @@
         </div>
     </div>
 
-
-    <script src="./scripts/script.js"></script>
+    <script src="./scripts/validate.js"></script>
+    <script src="./scripts/script.js" ></script>
 </body>
 
 </html>

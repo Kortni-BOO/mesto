@@ -34,7 +34,8 @@
         font-style: normal;
         font-weight: normal;
         width: 200px;
-        margin: 0 20px 30px 20px;
+        margin-top: 36px;
+       /* margin: 0 20px 30px 20px; */
       
     }
   }
