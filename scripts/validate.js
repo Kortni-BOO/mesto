@@ -54,11 +54,8 @@ const showInputError = (formElement, inputElement, config) => {
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
     });
-      //ищем кнопки
-      const submitButton = formElement.querySelector(config.submitButtonSelector);
-      setButtonState(submitButton, formElement.checkValidity(), config);
+
       setEventListeners(formElement, config);
-      submitButton.disabled = true;
   });
   }
 

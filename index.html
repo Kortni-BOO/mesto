@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
     <link rel="stylesheet" href="./style.css">
+    
     <title>Mesto</title>
 </head>
 
@@ -27,16 +28,7 @@
         </section>
         <section class="elements">
             <ul class="elements__list"></ul>
-            <template id="element__template">
-                <li class="element">
-                    <img class="element__image" src="" alt="">
-                    <button type="button" class="element__button-trush" aria-label="trush"></button>
-                    <div class="element__content">
-                        <h2 class="element__text"></h2>
-                        <button type="button" class="element__button-like" aria-label="like"></button>
-                    </div>
-                </li>
-            </template>
+
         </section>
     </main>
     <footer class="footer">
@@ -91,6 +83,19 @@
             <h6 class="popup__name"></h6>
         </div>
     </div>
+    <template id="element__template">
+        <li class="element">
+            <div class="element__card">
+            <img class="element__image" src="" alt=""></div>
+            <button type="button" class="element__button-trush" aria-label="trush"></button>
+            <div class="element__content">
+                <h2 class="element__text"></h2>
+                <button type="button" class="element__button-like" aria-label="like"></button>
+            </div>
+        </li>
+    </template>
+
+
 
     <script src="./scripts/validate.js"></script>
     <script src="./scripts/script.js" ></script>
