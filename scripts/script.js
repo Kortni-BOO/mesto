@@ -38,15 +38,31 @@ const profileJob = document.querySelector('.profile__job');
 const popupOpenAdd = document.querySelector('.profile__button-add');
 const popupProfileAdd = document.querySelector('.popup_profile-add');
 const popupCloseAdd = document.querySelector('.popup__close_profile-add');
+//переменные для добавление карточки в контейнер
+const placeName = document.querySelector('.popup__input_assignment_place-name');
+const placeLink = document.querySelector('.popup__input_assignment_place-link');
+const elementTemplate = document.querySelector('#element__template').content;
+const elements = document.querySelector('.elements__list');
+const popupCreate = document.querySelector('.popup__form_profile-add');
+
+// попап большое фото
+const bigPhoto = document.querySelector('.popup__profile-image');
+const popupPhoto = document.querySelector('.popup__image');
+const popupImageClose = document.querySelector('.popup__close_image');
+const popupPhotoName = document.querySelector('.popup__name');
 
 
 //открыть попап
 function openPopup(popup) {
     popup.classList.add('popup_is-opened');
+    document.addEventListener('mousedown', closeByOverlayClick);
+    document.addEventListener('keydown', closeByEscape);
 }
 //закрыть попап
 function closePopup(popup) {
     popup.classList.remove('popup_is-opened');
+    document.removeEventListener('mousedown', closeByOverlayClick);
+    document.removeEventListener('keydown', closeByEscape);
 }
 
 const buttonCreateCard = document.querySelector('.popup__create'); //кнопка сабмита для добавления
@@ -78,6 +94,8 @@ function closeEdit() {
     closePopup(popupProfileEdit);
 }
 popupCloseButton.addEventListener('click', closeEdit);
+
+
 function submitProfileForm (evt) {
     evt.preventDefault(); 
     profileName.textContent = nameInput.value;
@@ -89,106 +107,31 @@ formProfileElement.addEventListener('submit', submitProfileForm);
 //попап большое фото _____________________
 
 
-function addPopupPhoto() {
-    bigPhoto.classList.toggle('popup_is-opened');
-}
-//закроем изображение
-function removePopupPhoto() {
-    bigPhoto.classList.remove('popup_is-opened');
-}
-
-popupImageClose.addEventListener('click', removePopupPhoto);
-bigPhoto.addEventListener('mousedown', function(e){
-    if (e.target.classList.contains('popup') ) {
-        removePopupPhoto();
-        
+popupImageClose.addEventListener('click', function () {
+    closePopup(bigPhoto);
     }
-});
-/*
-//открыть попап для редактирования
-function toggleEditPopup() { //удалить3
-    popupProfileEdit.classList.add('popup_is-opened');
-    nameInput.value = profileName.textContent;
-    jobInput.value = profileJob.textContent;
-    //popupProfileEdit.classList.add('popup__is-opened');
-}
-//закрыть попап
-function toggleRemovePopup() { //удалить2
-    popupProfileEdit.classList.remove('popup_is-opened');
-}
-popupCloseButton.addEventListener('click', toggleRemovePopup);//изменить2
-/*
-//_____________________++++++++++________________________
-//openPopup(popupProfileAdd);
-
-//открыть попап для карточек
-/*
-function addCardPopup() {
-    popupProfileAdd.classList.add('popup_is-opened');
-}*/
-//------------------------------------------------------
-//закрыть попап для карточек
-// function removeCardPopup() { //удалить1
-//     popupProfileAdd.classList.remove('popup_is-opened');
-// }
+);
 
 
-
-
-
-
-
-//добавить значение имя и работы
-
-//закрыть попапы по нажатию на оверлей
-//--------для редктирования
-function closeEditOverlay (event) {
-    //console.log(event.target)
-    if (event.target.classList.contains('popup') ) {
-        toggleRemovePopup(); //изменить2
-        
-        
+// закрыть кликом по оверлею
+function closeByOverlayClick (evt) {
+    if (evt.target.classList.contains('popup')) {
+        const openedPopup = document.querySelector('.popup_is-opened');
+        closePopup(openedPopup);
     }
-    
-}
-//--------для добавления
-function closeAddOverlay (event) {
-    //console.log(event.target)
-    if (event.target.classList.contains('popup') ) {
-        removeCardPopup(); //изменить1
-        
+};
+
+
+// закрыть по нажатию на эскейп
+function closeByEscape (evt) {
+    const key = 27;
+    const openedPopup = document.querySelector('.popup_is-opened');
+    if (evt.keyCode === key) {
+        closePopup(openedPopup);
     }
-    
 }
-/*что не понятное */
-document.addEventListener('keydown', function(event) {
-    if(event.keyCode === 27) {
-        toggleRemovePopup();//изменить2
-        removeCardPopup();//изменить1
-        removePopupPhoto()
-    }
-    
-});
-
-popupProfileAdd.addEventListener('mousedown', closeAddOverlay) 
-popupProfileEdit.addEventListener('mousedown', closeEditOverlay)
-
-//popupOpenAdd.addEventListener('click', addCardPopup);
 
 
- 
-
-
-
-
-
-
-
-const placeName = document.querySelector('.popup__input_assignment_place-name');
-const placeLink = document.querySelector('.popup__input_assignment_place-link');
-const elementTemplate = document.querySelector('#element__template').content;
-const elements = document.querySelector('.elements__list');
-const popupCreate = document.querySelector('.popup__form_profile-add');
 
 //делаем карточки
 
@@ -211,7 +154,8 @@ function createCard(card){
 
     
     elementCard.querySelector('.element__image').addEventListener('click', function(e){
-        addPopupPhoto(bigPhoto);
+        //addPopupPhoto(bigPhoto);
+        openPopup(bigPhoto);
         popupPhoto.src = card.link; 
 
         popupPhotoName.innerText = card.name;
@@ -246,15 +190,3 @@ function addCard(evt) {
     closePopup(popupProfileAdd);
 }
 popupCreate.addEventListener('submit', addCard);
-
-
-
-
-const bigPhoto = document.querySelector('.popup__profile-image');
-const popupPhoto = document.querySelector('.popup__image');
-const popupImageClose = document.querySelector('.popup__close_image');
-const popupPhotoName = document.querySelector('.popup__name');
-//увеличим изображение
-
-
-
