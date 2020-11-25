@@ -77,10 +77,8 @@ function openAdd() {
 }
 popupOpenAdd.addEventListener('click', openAdd);
 //функция закрывает попап для добавления
-function closeAdd() {
-    closePopup(popupProfileAdd);
-}
-popupCloseAdd.addEventListener('click', closeAdd);
+
+popupCloseAdd.addEventListener('click', () => { closePopup(popupProfileAdd) })
 //---------------------------- Редактирование ----------------
 //открывает попап редактирования профиля
 function openEdit() {
@@ -90,10 +88,8 @@ function openEdit() {
 }
 popupOpenButton.addEventListener('click', openEdit);//удалить3
 //закрывает попап редактирования профиля
-function closeEdit() {
-    closePopup(popupProfileEdit);
-}
-popupCloseButton.addEventListener('click', closeEdit);
+
+popupCloseButton.addEventListener('click', () => { closePopup(popupProfileEdit) })
 
 
 function submitProfileForm (evt) {
@@ -107,10 +103,8 @@ formProfileElement.addEventListener('submit', submitProfileForm);
 //попап большое фото _____________________
 
 
-popupImageClose.addEventListener('click', function () {
-    closePopup(bigPhoto);
-    }
-);
+
+popupImageClose.addEventListener('click', () => { closePopup(bigPhoto) });
 
 
 // закрыть кликом по оверлею
@@ -121,12 +115,11 @@ function closeByOverlayClick (evt) {
     }
 };
 
-
+const ESC_KEY = 27;
 // закрыть по нажатию на эскейп
 function closeByEscape (evt) {
-    const key = 27;
     const openedPopup = document.querySelector('.popup_is-opened');
-    if (evt.keyCode === key) {
+    if (evt.keyCode === ESC_KEY) {
         closePopup(openedPopup);
     }
 }
