@@ -46,7 +46,7 @@ const popupCloseAdd = document.querySelector('.popup__close_profile-add');
 //переменные для добавление карточки в контейнер
 const placeName = document.querySelector('.popup__input_assignment_place-name');
 const placeLink = document.querySelector('.popup__input_assignment_place-link');
-const elementTemplate = document.querySelector('.element__template').content;
+const elementTemplate = document.querySelector('.template').content;
 const elements = document.querySelector('.elements__list');
 const popupCreate = document.querySelector('.popup__form_profile-add');
 
@@ -100,7 +100,7 @@ popupImageClose.addEventListener('click', () => { closePopup(bigPhoto) });
 
 
 const renderCard = (data, wrap) => {
-    const card = new Card(data, '.element__template');
+    const card = new Card(data, '.template');
     const elementCard = card.generateCard();
     wrap.prepend(elementCard);
    
@@ -109,7 +109,7 @@ const renderCard = (data, wrap) => {
 
 
 initialCards.forEach((data) => {
-    const card = new Card(data, '.element__template');
+    const card = new Card(data, '.template');
     const elementCard = card.generateCard();
 
     document.querySelector('.elements__list').append(elementCard);
