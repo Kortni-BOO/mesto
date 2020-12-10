@@ -25,7 +25,19 @@
             <button type="button" class="profile__button-add" aria-label="add"></button>
         </section>
         <section class="elements">
-            <ul class="elements__list"></ul>
+            <ul class="elements__list">
+                <template class="element__template">
+                    <li class="element">
+                        <div class="element__card">
+                        <img class="element__image" src="#" alt="картирнка"></div>
+                        <button type="button" class="element__button-trush" aria-label="trush"></button>
+                        <div class="element__content">
+                            <h2 class="element__text"></h2>
+                            <button type="button" class="element__button-like" aria-label="like"></button>
+                        </div>
+                    </li>
+                </template>
+            </ul>
 
         </section>
     </main>
@@ -40,10 +52,10 @@
             <h4 class="popup__title popup__title_profile-edit">Редактировать профиль</h4>
             <form class="popup__form popup__form_profile-edit" method="POST" name="PopupEditProfile" >
                 <fieldset class="popup__fieldset popup__fieldset_profile-edit" novalidate>
-                    <label class="popup__profile_name-label" for="profile-name"></label>
+                    <label class="popup__name_label" for="profile-name"></label>
                     <input id="profile-name" type="text" name="ProfileName" class="popup__input popup__input_assignment_author-name" required minlength="2" maxlength="40" >
                     <span id="profile-name-error" class="popup__input-error popup__input-error_author-name"></span>
-                    <label class="popup__profile_job-label" for="profile-job"></label>
+                    <label class="popup__job_label" for="profile-job"></label>
                     <input id="profile-job" type="text" name="ProfileJob" class="popup__input popup__input_assignment_author-job" required minlength="2" maxlength="200">
                     <span id="profile-job-error" class="popup__input-error popup__input-error_author-job"></span>
                 </fieldset>
@@ -59,11 +71,11 @@
             <h4 class="popup__title popup__title_profile-add">Новое место</h4>
             <form class="popup__form popup__form_profile-add" method="POST" name="PopupEditProfile" >
                 <fieldset class="popup__fieldset popup__fieldset_profile-add" novalidate>
-                    <label class="popup__place_name-label" for="place-name"></label>
+                    <label class="popup__name_label" for="place-name"></label>
                     <input id="place-name" type="text" name="PlaceName" class="popup__input popup__input_assignment_place-name"
                         placeholder="Название" minlength="2" maxlength="30" required novalidate>
                         <span id="place-name-error" class="popup__input-error popup__input-error_place-name"></span>
-                    <label class="popup__place_link-label" for="place-link"></label>
+                    <label class="popup__link_label" for="place-link"></label>
                     <input id="place-link" type="url" name="PlaceLink" class="popup__input popup__input_assignment_place-link"
                         placeholder="Ссылка на картинку" required novalidate>
                         <span id="place-link-error" class="popup__input-error popup__input-error_place-link"></span>
@@ -81,17 +93,7 @@
             <h6 class="popup__name"></h6>
         </div>
     </div>
-    <template class="element__template">
-        <li class="element">
-            <div class="element__card">
-            <img class="element__image" src="#" alt="картирнка"></div>
-            <button type="button" class="element__button-trush" aria-label="trush"></button>
-            <div class="element__content">
-                <h2 class="element__text"></h2>
-                <button type="button" class="element__button-like" aria-label="like"></button>
-            </div>
-        </li>
-    </template>
+
 
 
     <script type="module" src="./scripts/Card.js"></script>
