@@ -1,5 +1,5 @@
 import {openPopup} from './utils.js';
-const bigPhoto = document.querySelector('.popup__profile-image');
+const bigPhoto = document.querySelector('.popup_profile-image');
 const popupPhoto = document.querySelector('.popup__image');
 const popupPhotoName = document.querySelector('.popup__name');
 
@@ -30,14 +30,27 @@ class Card {
     _removeCard = () => {
         this._element.remove();
     }
-
+/*
     _openPopupImage = () => {
             openPopup(bigPhoto);
 
             popupPhoto.src = this._link; 
             popupPhotoName.innerText = this._name;
+            console.log(bigPhoto);
             
 
+    }
+*/
+
+    _openPopupImage = () => {
+        this._element.querySelector('.element__image')  
+        .addEventListener('click', () => {          
+            openPopup(bigPhoto);
+
+            popupPhoto.src = this._link; 
+            popupPhotoName.innerText = this._name;
+            console.log(bigPhoto);
+        });
     }
 
     _setEventListeners() {
@@ -46,11 +59,12 @@ class Card {
         this._element.querySelector('.element__button-trush')
         .addEventListener('click', this._removeCard);
 
-        this._element.querySelector('.element__image')  
+      /*  this._element.querySelector('.element__image')  
         .addEventListener('click', () => {          
             this._openPopupImage();
-        });
-     
+        }); */
+        this._openPopupImage();
+
 
     }
 

@@ -51,7 +51,7 @@ const elements = document.querySelector('.elements__list');
 const popupCreate = document.querySelector('.popup__form_profile-add');
 
 // попап большое фото
-const bigPhoto = document.querySelector('.popup__profile-image');
+const bigPhoto = document.querySelector('.popup_profile-image');
 const popupPhoto = document.querySelector('.popup__image');
 const popupImageClose = document.querySelector('.popup__close_image');
 const popupPhotoName = document.querySelector('.popup__name');
@@ -132,18 +132,6 @@ function addCard(evt) {
 popupCreate.addEventListener('submit', addCard);
 
 
-
-/* НАДО РАЗОБРАТЬСЯ 
-const validationConfig = {
-    formSelector: '.popup__form',
-    inputSlector: '.popup__input',
-    submitButtonSelector: '.popup__submit_active',
-    inactiveButtonClass: 'popup__submit_inactive',
-    inputErrorClass: 'popup__input-error_active',
-    errorClass: 'form__input_type_error',
-
-}
-*/
 
 const formEdit = new FormValidator(validationConfig, popupProfileEdit);
 const formAdd = new FormValidator(validationConfig, popupProfileAdd);
