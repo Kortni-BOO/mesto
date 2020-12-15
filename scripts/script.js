@@ -32,7 +32,6 @@ function closeByEscape (evt) {
     }
 }
 
-
 //кнопка для редактирования профиля
 
 const popupProfileEdit = document.querySelector('.popup_profile-edit');
@@ -128,7 +127,7 @@ function addCard(evt) {
     closePopup(popupProfileAdd);
 }
 popupCreate.addEventListener('submit', addCard);
-
+//Валидация
 const formEdit = new FormValidator(validationConfig, popupProfileEdit);
 const formAdd = new FormValidator(validationConfig, popupProfileAdd);
 formEdit.enableValidation();
