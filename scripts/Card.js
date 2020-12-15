@@ -1,73 +1,37 @@
-import {openPopup} from './utils.js';
-const bigPhoto = document.querySelector('.popup_profile-image');
-const popupPhoto = document.querySelector('.popup__image');
-const popupPhotoName = document.querySelector('.popup__name');
 
-class Card {
-    constructor(data, elementTemplate) {
-        this._link = data.link;
-        this._name = data.name;
+export default class Card {
+    constructor(cardData, elementTemplate, onImageClick) {
+        this._link = cardData.link;
+        this._name = cardData.name;
+        this._cardData = cardData
         this._elementTemplate = elementTemplate;
+        this._onImageClick = onImageClick;
     }
 
     _getTemplate() {
-        const elementCard = document
+        return document
             .querySelector(this._elementTemplate)
             .content
             .querySelector('.element')
             .cloneNode(true);
-
-        return elementCard;
     }
-
-    _addLike() {
-        this._element.querySelector('.element__button-like').addEventListener('click', function (evt) {
-            evt.target.classList.toggle('element__button-like__active');
-        });
-    }
-
 
     _removeCard = () => {
         this._element.remove();
     }
-/*
-    _openPopupImage = () => {
-            openPopup(bigPhoto);
-
-            popupPhoto.src = this._link; 
-            popupPhotoName.innerText = this._name;
-            console.log(bigPhoto);
-            
-
-    }
-*/
-
-    _openPopupImage = () => {
-        this._element.querySelector('.element__image')  
-        .addEventListener('click', () => {          
-            openPopup(bigPhoto);
-
-            popupPhoto.src = this._link; 
-            popupPhotoName.innerText = this._name;
-            console.log(bigPhoto);
-        });
-    }
 
     _setEventListeners() {
-        this._addLike();
+        this._element.querySelector('.element__button-like').addEventListener('click', function (evt) {
+            evt.target.classList.toggle('element__button-like__active');
+        });
 
         this._element.querySelector('.element__button-trush')
         .addEventListener('click', this._removeCard);
 
-      /*  this._element.querySelector('.element__image')  
-        .addEventListener('click', () => {          
-            this._openPopupImage();
-        }); */
-        this._openPopupImage();
-
+        this._element.querySelector('.element__image')
+        .addEventListener('click',() => this._onImageClick(this._cardData));
 
     }
-
 
     generateCard() {
         this._element = this._getTemplate();
@@ -78,11 +42,7 @@ class Card {
         elementImage.alt = this._name;
 
         return this._element;
-
     }
-
 
 }
 export {Card}
-
-

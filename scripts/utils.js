@@ -1,30 +1,38 @@
-function openPopup(popup) {
-    popup.classList.add('popup_is-opened');
-    document.addEventListener('mousedown', closeByOverlayClick);
-    document.addEventListener('keydown', closeByEscape);
-}
-
-function closePopup(popup) {
-    popup.classList.remove('popup_is-opened');
-    document.removeEventListener('mousedown', closeByOverlayClick);
-    document.removeEventListener('keydown', closeByEscape);
-}
-
-// закрыть кликом по оверлею
-function closeByOverlayClick (evt) {
-    if (evt.target.classList.contains('popup')) {
-        const openedPopup = document.querySelector('.popup_is-opened');
-        closePopup(openedPopup);
+const initialCards = [
+    {
+        name: 'Архыз',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+        name: 'Челябинская область',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+        name: 'Иваново',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+        name: 'Камчатка',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+        name: 'Холмогорский район',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+        name: 'Байкал',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
-};
+];
 
-const ESC_KEY = 27;
-// закрыть по нажатию на эскейп
-function closeByEscape (evt) {
-    const openedPopup = document.querySelector('.popup_is-opened');
-    if (evt.keyCode === ESC_KEY) {
-        closePopup(openedPopup);
-    }
+const validationConfig = {
+    formSelector: '.popup__form',
+    inputSlector: '.popup__input',
+    submitButtonSelector: '.popup__submit_active',
+    inactiveButtonClass: 'popup__submit_inactive',
+    inputErrorClass: 'popup__input-error_active',
+    errorClass: 'form__input_type_error',
+
 }
 
-export {openPopup, closePopup, closeByOverlayClick, closeByEscape} 
+export {initialCards, validationConfig} 
