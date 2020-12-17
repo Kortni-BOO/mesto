@@ -20,28 +20,43 @@ export default class FormValidator  {
 
     _checkInputValidity = (inputElement) => {
         if (!inputElement.validity.valid) {
-          this._showInputError(inputElement);
+            this._showInputError(inputElement);
         } else {
-          this._hideInputError(inputElement);
+            this._hideInputError(inputElement);
         }
     }
 
     _hasInvalidInput = (inputList) => {
         return inputList.some((inputElement) => {
-          return !inputElement.validity.valid;
+            return !inputElement.validity.valid;
         });
-      };
-
-
+    }
 
     _setButtonState = (inputList, button) => {
         if(this._hasInvalidInput(inputList)) {
-            button.classList.add(this._config.inactiveButtonClass);
-            button.disabled = true;
+            //button.classList.add(this._config.inactiveButtonClass);
+            //button.disabled = true;
+            this.clearButton(button);
         } else {
             button.classList.remove(this._config.inactiveButtonClass);
             button.disabled = false;
         }
+    }
+
+    clearButton = (button) => {
+        button.classList.add(this._config.inactiveButtonClass);
+        button.disabled = true;
+    }
+
+    resetValidation = () => {
+        this._formElement.querySelectorAll(this._config.inputSlector).forEach((inputElement) => {
+            inputElement.classList.remove(this._config.errorClass);
+        });
+        this._formElement.querySelectorAll('.popup__input-error').forEach((error) => {
+            error.classList.remove(this._config.inputErrorClass);
+            //error.textContent = '';
+        });
+
     }
 
     _setEventListeners = () => {
@@ -50,27 +65,23 @@ export default class FormValidator  {
         const submitButton = this._formElement.querySelector(this._config.submitButtonSelector);
         //нашли
         
+        //this.clearError(submitButton);
         inputList.forEach((inputElement) => {
-          inputElement.addEventListener('input', () => {
-            this._checkInputValidity(inputElement);
-            //вызываем функцию для кнопок
-            this._setButtonState(inputList ,submitButton);
-            
-          });
+            inputElement.addEventListener('input', () => {
+                this._checkInputValidity(inputElement);
+                //вызываем функцию для кнопок
+                this._setButtonState(inputList ,submitButton);
+            });
         });
         
     }
 
     enableValidation = () => {
-        
-        //const formList = Array.from(document.querySelectorAll(this._config.formSelector));
-        //formList.forEach((form) => {
         this._formElement.addEventListener('submit', (evt) => {
-          evt.preventDefault();
+            evt.preventDefault();
         });
-    
-          this._setEventListeners();
-      //});
+        
+        this._setEventListeners();
     }
 
 }

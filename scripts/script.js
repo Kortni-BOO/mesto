@@ -6,7 +6,7 @@ import {initialCards, validationConfig}  from './utils.js';
 function openPopup(popup) {
     popup.classList.add('popup_is-opened');
     document.addEventListener('mousedown', closeByOverlayClick);
-    document.addEventListener('keydown', closeByEscape);
+    document.addEventListener('keydown', closeByEscape); 
 }
 
 function closePopup(popup) {
@@ -16,24 +16,22 @@ function closePopup(popup) {
 }
 
 // закрыть кликом по оверлею
-function closeByOverlayClick (evt) {
-    if (evt.target.classList.contains('popup')) {
-        const openedPopup = document.querySelector('.popup_is-opened');
-        closePopup(openedPopup);
-    }
-};
-
-const ESC_KEY = 27;
-// закрыть по нажатию на эскейп
-function closeByEscape (evt) {
-    const openedPopup = document.querySelector('.popup_is-opened');
-    if (evt.keyCode === ESC_KEY) {
-        closePopup(openedPopup);
+function closeByOverlayClick(evt) {
+    const handleElement = evt.target;
+    if (handleElement.classList.contains('popup')) {
+        closePopup(handleElement);
     }
 }
 
+const ESC_KEY = 27;
+// закрыть по нажатию на эскейп
+function closeByEscape(evt) {
+    if (evt.keyCode === ESC_KEY) {
+        const openedPopup = document.querySelector('.popup_is-opened');
+        closePopup(openedPopup);
+    }
+}
 //кнопка для редактирования профиля
-
 const popupProfileEdit = document.querySelector('.popup_profile-edit');
 const popupOpenButton = document.querySelector('.profile__button-edit');
 const popupCloseButton = document.querySelector('.popup__close_profile-edit');
@@ -51,34 +49,34 @@ const placeName = document.querySelector('.popup__input_assignment_place-name');
 const placeLink = document.querySelector('.popup__input_assignment_place-link');
 const elements = document.querySelector('.elements__list');
 const popupCreate = document.querySelector('.popup__form_profile-add');
-
 // попап большое фото
 const bigPhoto = document.querySelector('.popup_profile-image');
 const popupPhoto = document.querySelector('.popup__image');
 const popupImageClose = document.querySelector('.popup__close_image');
 const popupPhotoName = document.querySelector('.popup__name');
 const buttonCreateCard = document.querySelector('.popup__create'); //кнопка сабмита для добавления
-
+const popupFormAdd = document.querySelector('.popup__form_profile-add'); // для ресета
 
 //функция открывает попап для добавления
 function openAdd() {
+    formAdd.clearButton(buttonCreateCard);
+    formAdd.resetValidation();
     openPopup(popupProfileAdd);
-    placeName.value = ''; 
-    placeLink.value = '';
-    buttonCreateCard.classList.add('popup__submit_inactive');
-    buttonCreateCard.disabled = true;
+    popupFormAdd.reset();
+
 }
 popupOpenAdd.addEventListener('click', openAdd);
-popupCloseAdd.addEventListener('click', () => { closePopup(popupProfileAdd) })
+popupCloseAdd.addEventListener('click', () => { closePopup(popupProfileAdd) });
 //---------------------------- Редактирование ----------------
-
+const i = document.querySelector('.popup__form_profile-add')
 function openEdit() {
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
     openPopup(popupProfileEdit);
+    formEdit.resetValidation();
 }
 popupOpenButton.addEventListener('click', openEdit);
-popupCloseButton.addEventListener('click', () => closePopup(popupProfileEdit))
+popupCloseButton.addEventListener('click', () => closePopup(popupProfileEdit));
 
 function submitProfileForm(evt) {
     evt.preventDefault(); 
@@ -95,7 +93,6 @@ function onImageClick(data) {
     popupPhotoName.innerText = data.name; 
 }
 
-
 const createCard = (data) => {
     const card = new Card(data, '.template', onImageClick);
     const elementCard = card.generateCard();
@@ -110,12 +107,11 @@ const renderCard = (data, wrap, isPrepend) => {
     }
 }
 
-initialCards.forEach((data) => renderCard(data ,elements, false))
-
+initialCards.forEach((data) => renderCard(data ,elements, false));
 
 //добавим новую карточку
-function addCard(evt) {
-    evt.preventDefault();
+function addCard() {
+    //evt.preventDefault();
     const nameValue = placeName.value;
     const linkValue = placeLink.value;
 
