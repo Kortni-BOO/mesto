@@ -66,9 +66,9 @@ function openAdd() {
 
 }
 popupOpenAdd.addEventListener('click', openAdd);
-popupCloseAdd.addEventListener('click', () => { closePopup(popupProfileAdd) });
+popupCloseAdd.addEventListener('click', () => { closePopup(popupProfileAdd); });
 //---------------------------- Редактирование ----------------
-const i = document.querySelector('.popup__form_profile-add')
+
 function openEdit() {
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
@@ -85,7 +85,7 @@ function submitProfileForm(evt) {
     closePopup(popupProfileEdit); 
 }
 formProfileElement.addEventListener('submit', submitProfileForm);
-popupImageClose.addEventListener('click', () => { closePopup(bigPhoto) });
+popupImageClose.addEventListener('click', () => { closePopup(bigPhoto); });
 
 function onImageClick(data) {
     openPopup(bigPhoto);
@@ -97,7 +97,7 @@ const createCard = (data) => {
     const card = new Card(data, '.template', onImageClick);
     const elementCard = card.generateCard();
     return elementCard;
-}
+};
 
 const renderCard = (data, wrap, isPrepend) => {
     if(isPrepend) {
@@ -105,7 +105,7 @@ const renderCard = (data, wrap, isPrepend) => {
     } else {
         wrap.append(createCard(data));
     }
-}
+};
 
 initialCards.forEach((data) => renderCard(data ,elements, false));
 
