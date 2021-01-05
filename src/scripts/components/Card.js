@@ -1,11 +1,11 @@
 
 export default class Card {
-    constructor(cardData, elementTemplate, onImageClick) {
+    constructor(cardData, elementTemplate, handleCardClick) {
         this._link = cardData.link;
         this._name = cardData.name;
         this._cardData = cardData
         this._elementTemplate = elementTemplate;
-        this._onImageClick = onImageClick;
+        this._handleCardClick = handleCardClick;//для открытия картинки
     }
 
     _getTemplate() {
@@ -32,7 +32,7 @@ export default class Card {
         .addEventListener('click', this._removeCard);
 
         this._element.querySelector('.element__image')
-        .addEventListener('click',() => this._onImageClick(this._cardData));
+        .addEventListener('click',() => this._handleCardClick(this._cardData));
     }
 
     generateCard() {
