@@ -1,6 +1,4 @@
 import Popup from './Popup.js';
-import UserInfo from './UserInfo.js';
-import {nameInput, jobInput,profileName, profileJob} from '../utils/constants.js';
 export default class PopupWithForm extends Popup {
     constructor({popupSelector, handleFormSubmit}) {
         super(popupSelector)

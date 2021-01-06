@@ -4,7 +4,7 @@ import FormValidator from '../scripts/components/FormValidator.js';
 import {initialCards, validationConfig}  from '../scripts/utils/constants.js';
 import Section from '../scripts/components/Section.js';
 import PopupWithForm from '../scripts/components/PopupWithForm.js';
-import {nameInput, jobInput,profileName, profileJob, placeName, placeLink, bigPhoto,buttonCreateCard,popupFormAdd,popupProfileAdd,popupOpenButtonAdd, elements} from '../scripts/utils/constants.js';
+import {popupPhoto, popupPhotoName,nameInput, jobInput,profileName, profileJob, placeName, placeLink, bigPhoto,buttonCreateCard,popupFormAdd,popupProfileAdd,popupOpenButtonAdd, elements} from '../scripts/utils/constants.js';
 import PopupWidthImage from '../scripts/components/PopupWithImage.js'
 import UserInfo from '../scripts/components/UserInfo.js';
 
@@ -28,7 +28,7 @@ popupOpenButton.addEventListener('click', () => {
     jobInput.value = currentUserInfo.info;
 });
 
-const popupPhotoBig = new PopupWidthImage(bigPhoto);
+const popupPhotoBig = new PopupWidthImage({popupSelector: bigPhoto, link: popupPhoto, name:popupPhotoName});
 popupPhotoBig.setEventListeners();
 
 function handleCardClick(data) {
