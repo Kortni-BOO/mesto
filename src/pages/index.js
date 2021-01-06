@@ -4,32 +4,24 @@ import FormValidator from '../scripts/components/FormValidator.js';
 import {initialCards, validationConfig}  from '../scripts/utils/constants.js';
 import Section from '../scripts/components/Section.js';
 import PopupWithForm from '../scripts/components/PopupWithForm.js';
-import {popupPhoto, popupPhotoName,nameInput, jobInput,profileName, profileJob, placeName, placeLink, bigPhoto,buttonCreateCard,popupFormAdd,popupProfileAdd,popupOpenButtonAdd, elements} from '../scripts/utils/constants.js';
+import {popupPhoto, popupPhotoName,nameInput, jobInput,profileName, profileJob, placeName, placeLink, bigPhoto,buttonCreateCard,popupFormAdd,popupProfileAdd,popupOpenButtonAdd, elements, popupOpenButton} from '../scripts/utils/constants.js';
 import PopupWidthImage from '../scripts/components/PopupWithImage.js'
 import UserInfo from '../scripts/components/UserInfo.js';
 
 const popupProfileEdit = document.querySelector('.popup_profile-edit');
-const UserInform = new UserInfo({userName:profileName, userJob:profileJob});
+const userInform = new UserInfo({userName:profileName, userJob:profileJob});
 const popupEdit= new PopupWithForm({
     popupSelector:popupProfileEdit,
     handleFormSubmit: () => {
-        UserInform.setUserInfo({name: nameInput.value, info: jobInput.value})
+        userInform.setUserInfo({name: nameInput.value, info: jobInput.value})
         popupEdit.closePopup();
         popupEdit.setEventListeners();
     }
 });
-popupEdit.setEventListeners();
-const popupOpenButton = document.querySelector('.profile__button-edit');
-const currentUserInfo = UserInform.getUserInfo();
 
-popupOpenButton.addEventListener('click', () => {
-    popupEdit.openPopup();
-    nameInput.value = currentUserInfo.name;
-    jobInput.value = currentUserInfo.info;
-});
+const currentUserInfo = userInform.getUserInfo();
 
 const popupPhotoBig = new PopupWidthImage({popupSelector: bigPhoto, link: popupPhoto, name:popupPhotoName});
-popupPhotoBig.setEventListeners();
 
 function handleCardClick(data) {
     popupPhotoBig.openPopup(data);
@@ -41,49 +33,45 @@ const createCard = (data) => {
     return elementCard;
 };
 
-const renderCard = (data, wrap, isPrepend) => {
-    if(isPrepend) {
-        wrap.prepend(createCard(data));
-    } else {
-        wrap.append(createCard(data));
-    }
-};
-
 const popupAdd = new PopupWithForm({
     popupSelector:popupProfileAdd,
     handleFormSubmit: () => {
         const nameValue = placeName.value;
         const linkValue = placeLink.value;
-    
-        renderCard(({
+        const element = createCard({
             link: linkValue,
             name: nameValue,
-        }), elements, true);
-        
+        });
+        cardTemp.addItem(element, false);
         popupAdd.closePopup();
-
     }
 });
-popupAdd.setEventListeners();
 
+const cardTemp = new Section({items: initialCards, renderer: (item) => {
+    const element = createCard(item);
+    cardTemp.addItem(element, true);
+}}, elements);
+cardTemp.renderItems();
+
+//Валидация
+const formEdit = new FormValidator(validationConfig, popupProfileEdit);
+const formAdd = new FormValidator(validationConfig, popupProfileAdd);
+
+formEdit.enableValidation();
+formAdd.enableValidation();
+
+popupEdit.setEventListeners();
+popupOpenButton.addEventListener('click', () => {
+    popupEdit.openPopup();
+    nameInput.value = currentUserInfo.name;
+    jobInput.value = currentUserInfo.info;
+});
+
+popupPhotoBig.setEventListeners();
+popupAdd.setEventListeners();
 popupOpenButtonAdd.addEventListener('click', () => {
     popupAdd.openPopup();
     formAdd.clearButton(buttonCreateCard);
     formAdd.resetValidation();
     popupFormAdd.reset();
 });
-
-
-
-const cardTemp = new Section({items: initialCards, renderer: (item) => {
-    const element = createCard(item);
-    cardTemp.addItem(element);
-}}, elements);
-cardTemp.renderItems();
-
-
-//Валидация
-const formEdit = new FormValidator(validationConfig, popupProfileEdit);
-const formAdd = new FormValidator(validationConfig, popupProfileAdd);
-formEdit.enableValidation();
-formAdd.enableValidation();
