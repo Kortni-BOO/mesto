@@ -4,29 +4,13 @@ export default class DeletePicturePopup extends Popup {
         super(popupSelector);
         this._popupSelector = popupSelector;
         this._handleFormSubmit = handleFormSubmit;
-        this._form = document.querySelector('.popup__form_card-delete');
-        
+        this._form = document.querySelector('.popup__form_card-delete');  
     }
-    //setSubmitAction(action) {
-     //   this._handleFormSubmitCallback = action;
-    //}
-
-  
-
     setEventListeners() {
         super.setEventListeners();
-
-        this._form.addEventListener('submit', (evt) => {
-            
+        this._form.addEventListener('submit', (evt) => {   
             evt.preventDefault();
-            //this._handleFormSubmitCallback();
             this._handleFormSubmit(this);
-        }) 
-        
-
-        
+        })    
     }
-   
-
 }
-//{handleFormSubmit}

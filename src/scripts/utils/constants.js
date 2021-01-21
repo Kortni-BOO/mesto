@@ -66,3 +66,9 @@ export const buttonCreateCard = document.querySelector('.popup__create'); //кн
 export const popupFormAdd = document.querySelector('.popup__form_profile-add');
 export const elements = document.querySelector('.elements__list');
 
+export const popupUpdate = document.querySelector('.popup_profile-avatar-edit');
+export const popupOpenAvatar = document.querySelector('.profile__avatar-overlay');
+export const popupAv = document.querySelector('.popup__input_assigment_avatar-edit');
+export const popupRemove = document.querySelector('.popup_profile-image-delete');
+export const popupFormUpdate = document.querySelector('.popup__form_profile-avatar-edit');
+
