@@ -58,8 +58,8 @@
 .popup__title_profile-avatar-edit{width:330px;height:23px}
 .popup__input_assigment_avatar-edit{width:358px;height:13.87px;margin:29px 36px 0;font-family:Inter;font-style:normal;font-weight:400;font-size:14px;line-height:17px;color:#000}
 .popup__yes{width:358px;height:50px;background:#000;border-radius:2px;font-family:Inter;font-style:normal;font-weight:400;font-size:18px;line-height:22px;text-align:center;color:#fff;margin:auto;cursor:pointer}
-.profile__avatar_overlay{cursor:pointer;background-color:transparent;position:absolute;width:120px;height:120px;top:0;bottom:0;border-radius:50%;box-shadow:none;border:none}.profile__avatar_overlay:hover{background-image:url(images/VectorAvatar.a086f758840ae814ecde.svg);background-size:26px 26px;background-position:50%;background-repeat:no-repeat;background-color:rgba(0,0,0,.8)}
-.popup_avatar-save{background:#000;border-radius:2px;width:358px;height:50px;font-family:Inter;font-style:normal;font-weight:400;font-size:18px;line-height:22px;text-align:center;margin:48px auto 36px;color:#fff;border:none}
+.profile__avatar-overlay{cursor:pointer;background-color:transparent;position:absolute;width:120px;height:120px;top:0;bottom:0;border-radius:50%;box-shadow:none;border:none}.profile__avatar-overlay:hover{background-image:url(images/VectorAvatar.a086f758840ae814ecde.svg);background-size:26px 26px;background-position:50%;background-repeat:no-repeat;background-color:rgba(0,0,0,.8)}
+.popup__avatar_save{background:#000;border-radius:2px;width:358px;height:50px;font-family:Inter;font-style:normal;font-weight:400;font-size:18px;line-height:22px;text-align:center;margin:48px auto 36px;color:#fff;border:none}
 
 
 /*# sourceMappingURL=main.css.map*/
