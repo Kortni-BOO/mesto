@@ -12,6 +12,7 @@ export default class Popup {
         this._popup.classList.remove('popup_is-opened');
         document.removeEventListener('keydown', this._closeByEscape);
     }
+
     _closeByEscape = (evt) => {
         if (evt.keyCode === ESC_KEY) {
             //const openedPopup = document.querySelector('.popup_is-opened');

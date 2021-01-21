@@ -51,4 +51,13 @@
 @import url(../blocks/popup/__input-error/_place-link/popup__input-error_place-link.css);
 @import url(../blocks/popup/__input-error/_place-name/popup__input-error_place-name.css);
 @import url(../blocks/popup/__fieldset/_profile-add/popup__fieldset_profile-add.css);
+@import url(../blocks/element/__count/element__count.css);
+@import url(../blocks/popup/__container/-image-delete/popup__container-image-delete.css);
+@import url(../blocks/popup/__container/_profile-avatar-edit/popup__container_profile-avatar-edit.css);
+@import url(../blocks/popup/__title/-image-delete/popup__title-image-delete.css);
+@import url(../blocks/popup/__title/_profile-avatar-edit/popup__title_profile-avatar-edit.css);
+@import url(../blocks/popup/__input/_assignment/_avatar-edit/popup__input_assignment_avatar-edit.css);
+@import url(../blocks/popup/__yes/popup__yes.css);
+@import url(../blocks/profile/__avatar/_overlay/profile__avatar_overlay.css);
+@import url(../blocks/popup/_avatar-save/popup_avatar-save.css);
 

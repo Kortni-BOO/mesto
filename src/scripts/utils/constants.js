@@ -46,6 +46,8 @@ export const nameInput = document.querySelector('.popup__input_assignment_author
 export const jobInput = document.querySelector('.popup__input_assignment_author-job');
 export const profileName = document.querySelector('.profile__name');
 export const profileJob = document.querySelector('.profile__job');
+
+export const profileAvatar = document.querySelector('.profile__avatar');
 //export const popupOpenAdd = document.querySelector('.profile__button-add');
 export const popupProfileAdd = document.querySelector('.popup_profile-add');
 export const placeName = document.querySelector('.popup__input_assignment_place-name');
